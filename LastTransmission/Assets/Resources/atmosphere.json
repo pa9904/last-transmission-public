@@ -1,0 +1,28 @@
+{
+  "stages": [
+    {"darkness":0.02,"frost":0.05,"wind":0.11,"radio":0.025,"presence":0.0},
+    {"darkness":0.07,"frost":0.20,"wind":0.14,"radio":0.035,"presence":0.12},
+    {"darkness":0.13,"frost":0.38,"wind":0.16,"radio":0.05,"presence":0.22},
+    {"darkness":0.21,"frost":0.52,"wind":0.14,"radio":0.055,"presence":0.34},
+    {"darkness":0.23,"frost":0.67,"wind":0.09,"radio":0.065,"presence":0.58},
+    {"darkness":0.25,"frost":0.79,"wind":0.065,"radio":0.045,"presence":0.70}
+  ],
+  "cues": [
+    {"id":"arrival","call":0,"priority":0,"caption":"바람이 창틀을 누른다. 문은 잠겨 있고, 아직은 무전기만 응답한다.","sound":"none","gain":0},
+    {"id":"rescue-beacons","call":0,"minPhase":1,"priority":20,"require":"firstrescue","caption":"남쪽 임도의 초록 표지등 두 개가 눈 사이로 보인다. 구조 차량 쪽에 불빛이 남았다.","sound":"none","gain":0},
+    {"id":"empty-road","call":0,"minPhase":1,"priority":20,"exclude":"firstrescue","caption":"남쪽 임도 쪽은 어둡다. 구조 차량 도착을 알리는 불빛은 들어오지 않는다.","sound":"none","gain":0},
+    {"id":"fixed-beam","call":1,"priority":10,"caption":"창밖에 희미한 흰 불빛이 멈춰 있다. 눈발만 그 앞을 지나간다.","sound":"air","gain":0.12},
+    {"id":"bridge-approval","call":1,"minPhase":1,"priority":30,"require":"trustedbridge","caption":"출입 제어기에 미확인 대기 승인이 남았다. 문은 닫혀 있는데 손잡이 아래가 더 어둡다.","sound":"scrape","gain":0.13},
+    {"id":"lamp-low","call":2,"priority":10,"caption":"책상등의 빛이 낮아진다. 창에는 방 안의 반사만 짙어지고, 바깥은 더 잘 보이지 않는다.","sound":"relay","gain":0.11},
+    {"id":"password-approval","call":2,"minPhase":1,"priority":30,"require":"trustedpassword","caption":"신원 사전 승인 표시가 켜졌다. 유리에 남은 작은 빛은 자리를 바꾸지 않는다.","sound":"scrape","gain":0.14},
+    {"id":"auxiliary-strain","call":3,"priority":10,"caption":"예비 전원으로 버티던 책상등이 더 낮아진다. 동쪽 회선 표시등은 아직 꺼져 있다.","sound":"relay","gain":0.12},
+    {"id":"technician-connected","call":3,"minPhase":1,"priority":30,"require":"technician","caption":"동쪽 회선의 초록 표시등이 들어온다. 책상등이 조금 밝아지고, 무전 잡음 사이에 틈이 생긴다.","sound":"relay","gain":0.10},
+    {"id":"technician-lost","call":3,"minPhase":1,"priority":30,"exclude":"technician","caption":"동쪽 회선은 끝내 연결되지 않는다. 낮아진 책상등 아래에서 바람 소리만 이어진다.","sound":"air","gain":0.10},
+    {"id":"returning-phrase","call":4,"priority":10,"caption":"새로 송신하지 않았는데 수신 용지가 한 줄 더 나왔다.\n“{echo}”","sound":"carrier","gain":0.15},
+    {"id":"echo-invited","call":4,"minPhase":1,"priority":30,"require":"invitedecho","caption":"정문으로 오라는 승인이 표시된다. 문 아래의 그늘이 옆으로 길어지고, 바람 소리가 갑자기 멀게 느껴진다.","sound":"scrape","gain":0.16},
+    {"id":"echo-isolated","call":4,"minPhase":1,"priority":30,"require":"isolated","caption":"문제의 대역을 분리했다. 수신 용지의 문장은 남아 있지만, 그 뒤의 반송파는 끊긴다.","sound":"carrier","gain":0.09},
+    {"id":"at-the-door","call":5,"priority":10,"caption":"바람이 잦아든 틈에 문밖에서 두 번 두드리는 소리가 난다. 닫힌 문 아래의 그늘은 그대로다.","sound":"knock","gain":0.20},
+    {"id":"east-observed","call":5,"minPhase":2,"priority":40,"require":"verified","caption":"동쪽 회선은 실제로 보낸 확인등에 응답했다. 정문 쪽 그늘과, 연결된 초록 표시등이 함께 남는다.","sound":"relay","gain":0.09},
+    {"id":"approvals-cleared","call":5,"minPhase":2,"priority":50,"require":"verified","revoked":true,"caption":"미확인 정문 승인이 지워졌다. 실내 제어기 표시가 초록으로 돌아온다. 바깥문은 여전히 잠겨 있다.","sound":"relay","gain":0.09}
+  ]
+}
